@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "net_api": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7236",
+      "launchBrowser": false
+    }
+  }
+}

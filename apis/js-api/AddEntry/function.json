@@ -1,0 +1,26 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "route": "Entry",
+      "methods": [
+        "post"
+      ]
+    },
+    {
+      "name": "newEntry",
+      "type": "sql",
+      "direction": "out",
+      "commandText": "app.Entry",
+      "connectionStringSetting": "SQLConnectionString"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "bindings": [
+    {
+      "name": "Timer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 0 0 * * *"
+    },
+    {
+      "name": "ChangeTrackingHealth",
+      "type": "sql",
+      "direction": "in",
+      "connectionStringSetting": "SqlConnectionString",
+      "commandType": "StoredProcedure",
+      "commandText": "dbo.ChangeTrackingHealthReport",
+      "parameters": "@Schema=%report_schemaname%,@Table=%report_tablename%"
+    }
+  ]
+}

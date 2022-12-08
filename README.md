@@ -1,57 +1,83 @@
-# Project Name
+---
+page_type: sample
+languages:
+- tsql
+- sql
+- csharp
+- javascript
+- powershell
+products:
+- azure
+- azure-sql-database
+- dotnet-core
+- azure-functions
+- azure-static-web-apps
+description: "Geocoding sample for Azure SQL DB with Azure Functions"
+urlFragment: "azure-sql-functions-geocode"
+---
 
-(short, 1-3 sentenced, description of the project)
+# SQL bindings guestbook demo
 
-## Features
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-This project framework provides the following features:
+<!-- 
+Guidelines on README format: https://review.docs.microsoft.com/help/onboard/admin/samples/concepts/readme-template?branch=master
 
-* Feature 1
-* Feature 2
-* ...
+Guidance on onboarding samples to docs.microsoft.com/samples: https://review.docs.microsoft.com/help/onboard/admin/samples/process/onboarding?branch=master
 
-## Getting Started
+Taxonomies for products and languages: https://review.docs.microsoft.com/new-hope/information-architecture/metadata/taxonomies?branch=master
+-->
 
-### Prerequisites
+A sample web application where users can leave a message and view recent messages.  After entry, messages are send to content moderation.
 
-(ideally very short, if any)
+## Components
+- Azure SQL Database
+- .NET Azure Functions
+  - SQL trigger
+  - SQL output binding
+- JavaScript Azure Functions
+  - SQL output binding
+  - SQL input binding
+- Azure Static Web App
+ 
+ ## Contents
 
-- OS
-- Library version
-- ...
+| File/folder       | Description                                |
+|-------------------|--------------------------------------------|
+| `.github/workflows`       | GitHub Actions workflows for the sample to deploy the Functions, the Azure Static Web App, and the SQL project. |
+| `apis/js-api`            | JavaScript Azure Functions that serve the Azure Static Web App data. |
+| `apis/net-api`           | .NET Azure Function that moderates new guestbook entries. |
+| `apis/powershell-api`    | PowerShell Azure Function that runs a stored procedure to check the health of change tracking. |
+| `guestbook`              | Azure Static Web App that serves the guestbook UI through a React app. |
+| `sql`                    | SQL project that contains the database objects (tables, stored procedures). |
 
-### Installation
+## What are SQL bindings?
 
-(ideally very short)
+![summary slide on SQL bindings](images/sqlbindings-summary.png)
 
-- npm install [package name]
-- mvn install
-- ...
+Learn more at [https://aka.ms/sqlbindings](https://aka.ms/sqlbindings).
 
-### Quickstart
-(Add steps to get up and running quickly)
+- Azure Functions can authenticate to Azure SQL Database with Azure AD Managed Identity
+- Configure SQL bindings with a connection string and T-SQL query, stored procedure name, or table name
+- SQL bindings are currently in preview for .NET, JavaScript, Python, PowerShell, and Java Azure Functions
+- SQL trigger is currently in preview for .NET Azure Functions
+ 
+## Architecture
 
-1. git clone [repository clone url]
-2. cd [repository name]
-3. ...
+![architecture diagram](images/architecture.png)
 
-
-## Demo
-
-A demo app is included to show how to use the project.
-
-To run the demo, follow these steps:
-
-(Add steps to start up the demo)
-
-1.
-2.
-3.
-
-## Resources
-
-(Any additional resources or related projects)
-
-- Link to supporting information
-- Link to similar sample
-- ...
+- [JavaScript Azure Functions](apis/js-api/)
+  - lists some entries from the app.Entry table (SQL input binding)
+  - add guestbook entry for to app.Entry table (SQL output binding)
+- [Azure Static Web App](guestbook/)
+  - input form for adding guestbook entries
+  - list of guestbook entries
+  - calls to the JavaScript Azure Functions
+- [.NET Azure Function](apis/net-api/)
+  - SQL trigger on changes in app.Entry table
+  - sends newly inserted rows to Azure Content Moderation
+  - SQL output binding writes moderation results to app.Moderation table
+  - SQL output binding updates to app.Entry table
+- [PowerShell Azure Function](apis/powershell-api/)
+  - timer trigger runs the PowerShell functoion on a schedule
+  - SQL input binding runs a stored procedure checking the health of change tracking

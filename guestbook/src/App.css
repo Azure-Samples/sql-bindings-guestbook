@@ -1,0 +1,101 @@
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+
+
+/* this stuff is new */
+
+.header {
+    width: 100%;
+    padding: 2%;
+    /* background-color: burlywood; */
+    color: white;
+    text-align: center;
+}
+
+.mrgnbtm {
+    margin-top: 20px;
+}
+
+.btn-success {
+    background-color: #009999 !important;
+}
+
+.bg-primary {
+    background-color: #0066cc !important;
+}
+
+.bottomrow {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+}
+
+.pass-red {
+    color: #e74c3c;
+}
+
+.pass-orange {
+    color: #f39c12;
+}
+
+.pass-yellow {
+    color: #f1c40f;
+}
+
+.pass-green {
+    color: #2ecc71;
+}
+
+.pass-teal {
+    color: #009999;
+}
+
+.pass-blue {
+    color: #0066cc;
+}
+
+.primary-header {
+    font-weight: 700;
+}
+
+.horizontal-border {
+  height: 8px;
+  background: linear-gradient(to right, #ed3331, #ebab2a, #00a361, #4b80c1);
+  opacity: 1;
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build">
+  <Sdk Name="Microsoft.Build.Sql" Version="0.1.7-preview" />
+  <PropertyGroup>
+    <Name>guestbook</Name>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureV12DatabaseSchemaProvider</DSP>
+    <ModelCollation>1033, CI</ModelCollation>
+    <ProjectGuid>{4af5c6d1-9692-4e02-85bf-ef3c275621fd}</ProjectGuid>
+    <IsChangeTrackingOn>True</IsChangeTrackingOn>
+  </PropertyGroup>
+</Project>

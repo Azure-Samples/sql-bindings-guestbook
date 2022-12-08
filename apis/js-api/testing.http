@@ -1,0 +1,7 @@
+POST http://localhost:7071/api/Entry
+Content-Type: application/json
+
+{"newEntry":"some test entry"}
+
+###
+GET http://localhost:7071/api/Entry

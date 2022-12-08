@@ -1,0 +1,28 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "name": "ChangeTrackingHealth",
+      "type": "sql",
+      "direction": "in",
+      "connectionStringSetting": "SqlConnectionString",
+      "commandType": "StoredProcedure",
+      "commandText": "dbo.ChangeTrackingHealthReport",
+      "parameters": "@Schema=%report_schemaname%,@Table=%report_tablename%"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    }
+  ]
+}
