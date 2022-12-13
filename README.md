@@ -28,7 +28,7 @@ Guidance on onboarding samples to docs.microsoft.com/samples: https://review.doc
 Taxonomies for products and languages: https://review.docs.microsoft.com/new-hope/information-architecture/metadata/taxonomies?branch=master
 -->
 
-A sample web application where users can leave a message and view recent messages.  After entry, messages are send to content moderation.
+A sample web application where users can leave a message and view recent messages.  After entry, messages are send to content moderation. Watch a walkthrough of this sample at [https://www.youtube.com/watch?v=01nhp4OAk0c](https://www.youtube.com/watch?v=01nhp4OAk0c).
 
 ## Components
 - Azure SQL Database
@@ -40,7 +40,7 @@ A sample web application where users can leave a message and view recent message
   - SQL input binding
 - Azure Static Web App
  
- ## Contents
+## Contents
 
 | File/folder       | Description                                |
 |-------------------|--------------------------------------------|
@@ -50,21 +50,10 @@ A sample web application where users can leave a message and view recent message
 | `apis/powershell-api`    | PowerShell Azure Function that runs a stored procedure to check the health of change tracking. |
 | `guestbook`              | Azure Static Web App that serves the guestbook UI through a React app. |
 | `sql`                    | SQL project that contains the database objects (tables, stored procedures). |
-
-## What are SQL bindings?
-
-![summary slide on SQL bindings](images/sqlbindings-summary.png)
-
-Learn more at [https://aka.ms/sqlbindings](https://aka.ms/sqlbindings).
-
-- Azure Functions can authenticate to Azure SQL Database with Azure AD Managed Identity
-- Configure SQL bindings with a connection string and T-SQL query, stored procedure name, or table name
-- SQL bindings are currently in preview for .NET, JavaScript, Python, PowerShell, and Java Azure Functions
-- SQL trigger is currently in preview for .NET Azure Functions
  
 ## Architecture
 
-![architecture diagram](images/architecture.png)
+[![Data Exposed episode](https://img.youtube.com/vi/01nhp4OAk0c/0.jpg)](https://www.youtube.com/watch?v=01nhp4OAk0c)
 
 - [JavaScript Azure Functions](apis/js-api/)
   - lists some entries from the app.Entry table (SQL input binding)
@@ -81,3 +70,16 @@ Learn more at [https://aka.ms/sqlbindings](https://aka.ms/sqlbindings).
 - [PowerShell Azure Function](apis/powershell-api/)
   - timer trigger runs the PowerShell functoion on a schedule
   - SQL input binding runs a stored procedure checking the health of change tracking
+
+![architecture diagram](images/architecture.png)
+
+## What are SQL bindings?
+
+![summary slide on SQL bindings](images/sqlbindings-summary.png)
+
+Learn more at [https://aka.ms/sqlbindings](https://aka.ms/sqlbindings).
+
+- Azure Functions can authenticate to Azure SQL Database with Azure AD Managed Identity
+- Configure SQL bindings with a connection string and T-SQL query, stored procedure name, or table name
+- SQL bindings are currently in preview for .NET, JavaScript, Python, PowerShell, and Java Azure Functions
+- SQL trigger is currently in preview for .NET Azure Functions
