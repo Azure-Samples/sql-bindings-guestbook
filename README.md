@@ -30,6 +30,8 @@ Taxonomies for products and languages: https://review.docs.microsoft.com/new-hop
 
 A sample web application where users can leave a message and view recent messages.  After entry, messages are send to content moderation. Watch a walkthrough of this sample at [https://www.youtube.com/watch?v=01nhp4OAk0c](https://www.youtube.com/watch?v=01nhp4OAk0c).
 
+![guestbook screenshot](images/guestbook.png)
+
 ## Components
 - Azure SQL Database
 - .NET Azure Functions
