@@ -70,7 +70,7 @@ A sample web application where users can leave a message and view recent message
   - SQL output binding writes moderation results to app.Moderation table
   - SQL output binding updates to app.Entry table
 - [PowerShell Azure Function](apis/powershell-api/)
-  - timer trigger runs the PowerShell functoion on a schedule
+  - timer trigger runs the PowerShell function on a schedule
   - SQL input binding runs a stored procedure checking the health of change tracking
 
 ![architecture diagram](images/architecture.png)
