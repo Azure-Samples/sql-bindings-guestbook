@@ -1,0 +1,9 @@
+{
+    "IsEncrypted": false,
+    "Values": {
+      "SqlConnectionString": "Server=yourdevelopmentserver,1433;Database=guestbook;User ID=sa;Password=yourstrongpassword;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;",
+      "ModeratorKey": "yourmoderatorkeyhere",
+      "ModeratorEndpoint": "https://yourendpointhere.cognitiveservices.azure.com/",
+      "FUNCTIONS_WORKER_RUNTIME": "dotnet"
+    }
+  }

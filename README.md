@@ -40,7 +40,10 @@ A sample web application where users can leave a message and view recent message
 - JavaScript Azure Functions
   - SQL output binding
   - SQL input binding
+- PowerShell Azure Functions
+  - SQL input binding
 - Azure Static Web App
+- Azure Content Moderation
  
 ## Contents
 
@@ -85,3 +88,7 @@ Learn more at [https://aka.ms/sqlbindings](https://aka.ms/sqlbindings).
 - Configure SQL bindings with a connection string and T-SQL query, stored procedure name, or table name
 - SQL bindings are currently in preview for .NET, JavaScript, Python, PowerShell, and Java Azure Functions
 - SQL trigger is currently in preview for .NET Azure Functions
+
+## Getting started with the guestbook sample
+
+Instructions are available for setup of local development of this sample in [GETTING_STARTED.md](GETTING_STARTED.md).

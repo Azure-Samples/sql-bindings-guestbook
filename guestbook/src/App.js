@@ -23,6 +23,12 @@ function App() {
                 });
                 document.getElementById("newEntry").value = "";
             });
+            // wait 2 seconds and then reset the page
+            setTimeout(() => {
+                getEntries().then(res => {
+                    setEntries(res);
+                });
+            }, 2000);
         }
     }
 
@@ -30,7 +36,7 @@ function App() {
         getEntries().then(res => {
             setEntries(res);
         });
-    });
+    },[]);
 
     const onChangeForm = (e) => {
         if (e.target.id === 'newEntry') {
