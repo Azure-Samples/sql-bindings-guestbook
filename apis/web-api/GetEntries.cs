@@ -13,7 +13,7 @@ namespace Azure.Samples
     {
         [FunctionName("GetEntries")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "Entry")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Entry")] HttpRequest req,
             [Sql("SELECT TOP 10 [Id], [DisableView], [TextEntry], [DateCreated] FROM app.Entry WHERE [DisableView]= 0 ORDER BY [Id] DESC", "SqlConnectionString")] IEnumerable<Entry> entries,
             ILogger log)
         {

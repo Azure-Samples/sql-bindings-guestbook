@@ -30,18 +30,18 @@ Option 2: If you have a local SQL Server instance such as a the container `mcr.m
 
 After installing the [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#install-the-azure-functions-core-tools), you can run the Azure Functions locally for testing and development.  JavaScript Azure Functions will [require Node.js](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-node#configure-your-environment) to be installed and C# Azure Functions will [require .NET Core](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-csharp?tabs=in-process#configure-your-environment) to be installed.
 
-### JavaScript Azure Functions
+### C# Azure Functions (web-api)
 
-We need to add a local development settings file to the **apis/js-api** folder.  Copy the file **apis/js-api/local.settings.json.example** to **apis/js-api/local.settings.json** and update the `SqlConnectionString` value to match your local SQL Server instance.
+We need to add a local development settings file to the **apis/web-api** folder.  Copy the file **apis/web-api/local.settings.json.example** to **apis/web-api/local.settings.json** and update the `SqlConnectionString` value to match your local SQL Server instance.
 
-To run the NodeJS Azure Function locally, open a terminal in the **apis/js-api** folder and run the following command:
+To run the NodeJS Azure Function locally, open a terminal in the **apis/web-api** folder and run the following command:
 
 ```bash
 func start
 ```
 This starts Azure Functions Core Tools on the default port (7071) and makes the API endpoints used to read and write to the database available at http://localhost:7071/api.
 
-### C# Azure Functions
+### C# Azure Functions (net-api)
 
 We need to add a local development settings file to the **apis/net-api** folder.  Copy the file **apis/net-api/local.settings.json.example** to **apis/net-api/local.settings.json** and update the `SqlConnectionString` value to match your local SQL Server instance.
 

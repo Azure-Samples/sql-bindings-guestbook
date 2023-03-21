@@ -14,7 +14,7 @@ namespace Azure.Samples
     {
         [FunctionName("AddEntry")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "Entry")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "Entry")] HttpRequest req,
             [Sql("app.Entry", "SqlConnectionString")] IAsyncCollector<Entry> newEntries,
             ILogger log)
         {
