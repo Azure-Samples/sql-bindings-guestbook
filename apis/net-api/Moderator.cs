@@ -39,7 +39,6 @@ namespace Azure.Samples
                 {
                     // send the new entry for moderation
                     string toModerate = change.Item.TextEntry;
-                    int entryId = change.Item.Id ?? 0;
                     Entry toDisable = change.Item;
                     using (Stream stream = GenerateStreamFromString(toModerate)) {
                         Screen contentScreen = clientText.TextModeration.ScreenText("text/plain", stream, "eng", false, false, null, false);
@@ -47,7 +46,7 @@ namespace Azure.Samples
                             // if there are profane terms, mark the entry as disabled
                             toDisable.DisableView = true;
                         }
-                        Moderation newModeration = new Moderation(entryId, contentScreen);
+                        Moderation newModeration = new Moderation(change.Item.Id, contentScreen);
                         moderation.Add(newModeration);
                     }
                     toDisable.DateModerated = DateTime.Now;
