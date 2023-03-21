@@ -1,7 +1,0 @@
-{
-  "IsEncrypted": false,
-  "Values": {
-    "SqlConnectionString": "Server=yourdevelopmentserver,1433;Database=guestbook;User ID=sa;Password=yourstrongpassword;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;",
-    "FUNCTIONS_WORKER_RUNTIME": "node"
-  }
-}

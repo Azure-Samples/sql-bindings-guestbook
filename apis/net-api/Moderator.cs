@@ -19,9 +19,9 @@ namespace Azure.Samples
     {
         [FunctionName("Moderator")]
         public static void Run(
-            [SqlTrigger("[app].[Entry]", ConnectionStringSetting = "SqlConnectionString")] IReadOnlyList<SqlChange<Entry>> changes,
-            [Sql("app.Entry", ConnectionStringSetting = "SqlConnectionString")] out Entry[] entryUpdates,
-            [Sql("app.Moderation", ConnectionStringSetting = "SqlConnectionString")] out Moderation[] moderationUpdates,
+            [SqlTrigger("[app].[Entry]", "SqlConnectionString")] IReadOnlyList<SqlChange<Entry>> changes,
+            [Sql("app.Entry", "SqlConnectionString")] out Entry[] entryUpdates,
+            [Sql("app.Moderation", "SqlConnectionString")] out Moderation[] moderationUpdates,
             ILogger log)
         {
             List<Entry> updates = new List<Entry>();
@@ -39,6 +39,7 @@ namespace Azure.Samples
                 {
                     // send the new entry for moderation
                     string toModerate = change.Item.TextEntry;
+                    int entryId = change.Item.Id ?? 0;
                     Entry toDisable = change.Item;
                     using (Stream stream = GenerateStreamFromString(toModerate)) {
                         Screen contentScreen = clientText.TextModeration.ScreenText("text/plain", stream, "eng", false, false, null, false);
@@ -46,7 +47,7 @@ namespace Azure.Samples
                             // if there are profane terms, mark the entry as disabled
                             toDisable.DisableView = true;
                         }
-                        Moderation newModeration = new Moderation(change.Item.Id, contentScreen);
+                        Moderation newModeration = new Moderation(entryId, contentScreen);
                         moderation.Add(newModeration);
                     }
                     toDisable.DateModerated = DateTime.Now;

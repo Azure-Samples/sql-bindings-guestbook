@@ -8,7 +8,7 @@ export const Entries = ( { entries } ) => {
         return (
             <div>
                 <div key={index} className="row">
-                    <p>{entry.TextEntry}</p>
+                    <p>{entry.textEntry}</p>
                 </div>
                 <hr></hr>
             </div>
