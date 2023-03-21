@@ -37,10 +37,8 @@ A sample web application where users can leave a message and view recent message
 - .NET Azure Functions
   - SQL trigger
   - SQL output binding
-- JavaScript Azure Functions
+- .NET Azure Functions
   - SQL output binding
-  - SQL input binding
-- PowerShell Azure Functions
   - SQL input binding
 - Azure Static Web App
 - Azure Content Moderation
@@ -50,9 +48,8 @@ A sample web application where users can leave a message and view recent message
 | File/folder       | Description                                |
 |-------------------|--------------------------------------------|
 | `.github/workflows`       | GitHub Actions workflows for the sample to deploy the Functions, the Azure Static Web App, and the SQL project. |
-| `apis/js-api`            | JavaScript Azure Functions that serve the Azure Static Web App data. |
+| `apis/web-api`            | .NET Azure Functions that serve the Azure Static Web App data. |
 | `apis/net-api`           | .NET Azure Function that moderates new guestbook entries. |
-| `apis/powershell-api`    | PowerShell Azure Function that runs a stored procedure to check the health of change tracking. |
 | `guestbook`              | Azure Static Web App that serves the guestbook UI through a React app. |
 | `sql`                    | SQL project that contains the database objects (tables, stored procedures). |
  
@@ -60,21 +57,18 @@ A sample web application where users can leave a message and view recent message
 
 [![Data Exposed episode](https://img.youtube.com/vi/01nhp4OAk0c/0.jpg)](https://www.youtube.com/watch?v=01nhp4OAk0c)
 
-- [JavaScript Azure Functions](apis/js-api/)
-  - lists some entries from the app.Entry table (SQL input binding)
-  - add guestbook entry for to app.Entry table (SQL output binding)
 - [Azure Static Web App](guestbook/)
   - input form for adding guestbook entries
   - list of guestbook entries
-  - calls to the JavaScript Azure Functions
+  - calls to the .NET Azure Functions (web-api)
+- [.NET Azure Functions](apis/web-api/)
+  - lists some entries from the app.Entry table (SQL input binding)
+  - add guestbook entry for to app.Entry table (SQL output binding)
 - [.NET Azure Function](apis/net-api/)
   - SQL trigger on changes in app.Entry table
   - sends newly inserted rows to Azure Content Moderation
   - SQL output binding writes moderation results to app.Moderation table
   - SQL output binding updates to app.Entry table
-- [PowerShell Azure Function](apis/powershell-api/)
-  - timer trigger runs the PowerShell functoion on a schedule
-  - SQL input binding runs a stored procedure checking the health of change tracking
 
 ![architecture diagram](images/architecture.png)
 
