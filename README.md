@@ -9,7 +9,7 @@ languages:
 products:
 - azure
 - azure-sql-database
-- dotnet-core
+- dotnet
 - azure-functions
 - azure-static-web-apps
 description: "Geocoding sample for Azure SQL DB with Azure Functions"
